@@ -17,6 +17,25 @@ EasyLogger是一个日志工具，你可以用它替换掉代码中的```System.
 * 格式化List、Map、Set等集合类
 * 格式化数组
 
+## 添加Maven依赖
+Step 1. Add the JitPack repository to your build file
+```xml
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+```
+Step 2. Add the dependency
+```xml
+<dependency>
+    <groupId>com.github.Wang-Jiang</groupId>
+    <artifactId>EasyLogger</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
 ## 使用
 输出一个debug信息
 ```java
