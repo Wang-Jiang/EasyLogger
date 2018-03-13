@@ -18,14 +18,14 @@ public class JsonUtil {
      */
     public static String toJson(Object object) {
         if (object == null) {
-            return "<NULL>";
+            return "null";
         }
         //基本类型
         if (object instanceof Integer) {
             return String.valueOf(((Integer) object).intValue());
         }
         if (object instanceof Long) {
-            return String.valueOf(((Long) object).intValue());
+            return String.valueOf(((Long) object).longValue());
         }
         if (object instanceof Double) {
             return String.valueOf(((Double) object).doubleValue());
