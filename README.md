@@ -37,7 +37,7 @@ Step 2. Add the dependency
 ```
 
 ## 使用
-输出一个debug信息
+### 输出一个debug信息
 ```java
 EasyLogger.debug("输出一条debug信息");
 ```
@@ -46,7 +46,7 @@ EasyLogger.debug("输出一条debug信息");
 	<img src="screenshot/screenshot-001.png">
 </div>
 
-格式化JSON字符串
+### 格式化JSON字符串
 ```java
 EasyLogger.json("{\"age\":23,\"name\":{\"firstName\":\"zhang\",\"lastName\":\"san\"}} ");
 ```
@@ -54,7 +54,7 @@ EasyLogger.json("{\"age\":23,\"name\":{\"firstName\":\"zhang\",\"lastName\":\"sa
 	<img src="screenshot/screenshot-002.png">
 </div>
 
-将对象转化为JSON字符串
+### 将对象转化为JSON字符串
 ```java
 EasyLogger.json(new Person(11, "jack"));
 ```
@@ -62,7 +62,7 @@ EasyLogger.json(new Person(11, "jack"));
 	<img src="screenshot/screenshot-003.png">
 </div>
 
-格式化数组
+### 格式化数组
 ```java
 EasyLogger.debug(new int[]{0, 1, 2, 3});
 ```
@@ -70,13 +70,16 @@ EasyLogger.debug(new int[]{0, 1, 2, 3});
 	<img src="screenshot/screenshot-004.png">
 </div>
 
-格式化Map
+### 格式化Map
 ```java
 EasyLogger.debug(map);
 ```
 <div align="center">
 	<img src="screenshot/screenshot-005.png">
 </div>
+
+### 自定义转化Json规则
+将类implements自IJson，并实现toJson()方法，就可以自定义该类的转化Json规则，当调用```EasyLogger.json()```时，会直接调用该对象的```toJson()```方法
 
 ## 注意事项
 项目上线前需要在项目入口调用```EasyLogger.closeLog()```来关闭日志输出
@@ -104,6 +107,9 @@ private static void printIDWE(String msg, int level) {
 ```
 
 也就是说完全不需要担心EasyLogger会让你的程序变慢，当然你得在上线前关闭日志。这也和项目的定位有关，EasyLogger并不是想取代log4j之类的专业日志框架，它仅仅是想替换System.out.println()，在开发调试的时候，可以得到清晰的控制台输出。
+
+## Change Log
+查看[CHANGELOG.md](CHANGELOG.md)
 
 ## 开源协议
     The MIT License (MIT)

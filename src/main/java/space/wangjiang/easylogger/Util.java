@@ -1,5 +1,7 @@
 package space.wangjiang.easylogger;
 
+import space.wangjiang.easylogger.json.JsonUtil;
+
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -74,7 +76,7 @@ public class Util {
      * </pre>
      */
     public static String object2String(Object object) {
-        if (object == null) return "<NULL>";
+        if (object == null) return "null";
         String result;
         if (object instanceof List) {
             result = Util.list2String((List<?>) object);
@@ -96,7 +98,7 @@ public class Util {
      * 格式化json
      */
     public static String formatJson(String json) {
-        if (json == null) return "<NULL>";
+        if (json == null) return "null";
         int level = 0;
         StringBuilder sb = new StringBuilder();
         for (char ch : json.toCharArray()) {

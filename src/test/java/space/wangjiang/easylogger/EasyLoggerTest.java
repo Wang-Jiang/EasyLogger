@@ -84,6 +84,12 @@ public class EasyLoggerTest {
         EasyLogger.json("{\"age\":23,\"name\":{\"firstName\":\"zhang\",\"lastName\":\"san\"}} ");
     }
 
+    @Test
+    public void iJsonTest() {
+        Cat cat = new Cat("Tom", 3);
+        EasyLogger.json(cat);
+    }
+
     /**
      * 关闭日志后进行性能测试
      */

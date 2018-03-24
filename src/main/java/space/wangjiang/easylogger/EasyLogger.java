@@ -1,5 +1,6 @@
 package space.wangjiang.easylogger;
 
+import space.wangjiang.easylogger.json.JsonUtil;
 import space.wangjiang.easylogger.ui.UI;
 import space.wangjiang.easylogger.ui.DefaultUI;
 
@@ -12,8 +13,6 @@ public class EasyLogger {
     private static String LEFT_BORDER;
     private static String DIVIDING_LINE;
     private static String BOTTOM_BORDER;
-
-    private static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 
     static {
         setUI(new DefaultUI());
@@ -136,7 +135,8 @@ public class EasyLogger {
     private static void printThreadNameArea(String tag, int level) {
         String time = "";
         if (showTime) {
-            time = " (" + simpleDateFormat.format(new Date()) + ")";
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            time = " (" + format.format(new Date()) + ")";
         }
         String threadName = Thread.currentThread().getName();
         print(tag, LEFT_BORDER + "Thread: " + threadName + time, level);

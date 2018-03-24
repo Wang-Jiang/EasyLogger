@@ -2,6 +2,7 @@ package space.wangjiang.easylogger;
 
 import org.junit.Before;
 import org.junit.Test;
+import space.wangjiang.easylogger.json.JsonUtil;
 
 public class JsonUtilTest {
 

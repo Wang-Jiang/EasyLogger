@@ -1,5 +1,7 @@
-package space.wangjiang.easylogger;
+package space.wangjiang.easylogger.json;
 
+
+import space.wangjiang.easylogger.StringUtil;
 
 import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
@@ -19,6 +21,10 @@ public class JsonUtil {
     public static String toJson(Object object) {
         if (object == null) {
             return "null";
+        }
+        //优先判断是否实现IJson
+        if (object instanceof IJson) {
+            return ((IJson) object).toJson();
         }
         //基本类型
         if (object instanceof Integer) {
