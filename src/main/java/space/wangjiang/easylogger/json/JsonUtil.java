@@ -4,6 +4,8 @@ package space.wangjiang.easylogger.json;
 import space.wangjiang.easylogger.StringUtil;
 
 import java.lang.reflect.Method;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -41,6 +43,10 @@ public class JsonUtil {
         }
         if (object instanceof Boolean) {
             return String.valueOf(((Boolean) object).booleanValue());
+        }
+        //BigInteger等大数类型
+        if (object instanceof BigInteger || object instanceof BigDecimal) {
+            return object.toString();
         }
         //其他类型
         if (object instanceof String) {
