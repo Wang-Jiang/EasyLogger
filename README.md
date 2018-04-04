@@ -32,7 +32,7 @@ Step 2. Add the dependency
 <dependency>
     <groupId>com.github.Wang-Jiang</groupId>
     <artifactId>EasyLogger</artifactId>
-    <version>1.1.0</version>
+    <version>最新的Release版本</version>
 </dependency>
 ```
 
