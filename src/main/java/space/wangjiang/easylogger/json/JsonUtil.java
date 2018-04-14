@@ -6,6 +6,7 @@ import space.wangjiang.easylogger.StringUtil;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -61,8 +62,17 @@ public class JsonUtil {
         if (object instanceof Set) {
             return set2Json((Set) object);
         }
+        //各种时间类型，加上双引号
+        if (object instanceof java.sql.Date) {
+            SimpleDateFormat format = new SimpleDateFormat("\"yyyy-MM-dd\"");
+            return format.format((java.sql.Date) object);
+        }
+        if (object instanceof Time) {
+            SimpleDateFormat format = new SimpleDateFormat("\"hh:mm:ss\"");
+            return format.format((Time) object);
+        }
         if (object instanceof Date) {
-            //自定义时间格式，加上双引号
+            //Timestamp就当做Date处理
             SimpleDateFormat format = new SimpleDateFormat("\"yyyy-MM-dd hh:mm:ss\"");
             return format.format((Date) object);
         }
