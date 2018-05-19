@@ -68,12 +68,12 @@ public class JsonUtil {
             return format.format((java.sql.Date) object);
         }
         if (object instanceof Time) {
-            SimpleDateFormat format = new SimpleDateFormat("\"hh:mm:ss\"");
+            SimpleDateFormat format = new SimpleDateFormat("\"HH:mm:ss\"");
             return format.format((Time) object);
         }
         if (object instanceof Date) {
             //Timestamp就当做Date处理
-            SimpleDateFormat format = new SimpleDateFormat("\"yyyy-MM-dd hh:mm:ss\"");
+            SimpleDateFormat format = new SimpleDateFormat("\"yyyy-MM-dd HH:mm:ss\"");
             return format.format((Date) object);
         }
         if (object.getClass().isArray()) {
