@@ -27,7 +27,8 @@ public class EasyLogger {
 
     //是否显示线程名和是否显示调用方法名和行数
     private static boolean showThreadName = true;
-    private static boolean showCallMethodAndLine = true;
+    //默认关闭，因为在JUnit或者Web中使用的时候，方法调用非常长
+    private static boolean showCallMethodAndLine = false;
 
     private static boolean showTime = true;
 

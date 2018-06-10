@@ -19,7 +19,7 @@ public class Util {
         sb.append("\n{\n");
         for (int i = 0; i < list.size(); i++) {
             sb.append("  [").append(i).append("]: ")
-                    .append(list.get(i).toString())
+                    .append(list.get(i))
                     .append("\n");
         }
         sb.append("}");
@@ -34,7 +34,7 @@ public class Util {
         sb.append("\n{\n");
         for (int i = 0; i < array.length; i++) {
             sb.append("  [").append(i).append("]: ")
-                    .append(array[i].toString())
+                    .append(array[i])
                     .append("\n");
         }
         sb.append("}");
@@ -61,7 +61,7 @@ public class Util {
         sb.append("\n{\n");
         for (E e : set) {
             sb.append("  ")
-                    .append(e.toString())
+                    .append(e)
                     .append("\n");
         }
         sb.append("}");

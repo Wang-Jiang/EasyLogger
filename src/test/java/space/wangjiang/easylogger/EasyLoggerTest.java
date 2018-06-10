@@ -118,4 +118,19 @@ public class EasyLoggerTest {
         System.out.println("耗时：" + (System.currentTimeMillis() - start));
     }
 
+    /**
+     * null值测试
+     */
+    @Test
+    public void nullTest() {
+        List<String> list = null;
+        EasyLogger.debug(list);
+
+        list = new ArrayList<>();
+        list.add("aaa");
+        list.add(null);
+        EasyLogger.debug(list);
+
+    }
+
 }
