@@ -2,6 +2,8 @@ package space.wangjiang.easylogger.json;
 
 
 import space.wangjiang.easylogger.StringUtil;
+import space.wangjiang.easylogger.json.handler.IJsonHandler;
+import space.wangjiang.easylogger.json.handler.JsonHandlerMapping;
 
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
@@ -21,13 +23,16 @@ public class JsonUtil {
      * 对象转化json字符串
      * 这个需要递归调用
      */
+    @SuppressWarnings({"unchecked", "rawtypes"})
     public static String toJson(Object object) {
         if (object == null) {
             return "null";
         }
         //优先判断是否实现IJson
-        if (object instanceof IJson) {
-            return ((IJson) object).toJson();
+        Class<?> clazz = object.getClass();
+        IJsonHandler jsonHandler = JsonHandlerMapping.get(clazz);
+        if (jsonHandler != null) {
+            return jsonHandler.toJson(object);
         }
         //基本类型
         if (object instanceof Integer) {

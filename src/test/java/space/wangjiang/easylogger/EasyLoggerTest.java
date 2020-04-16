@@ -1,6 +1,8 @@
 package space.wangjiang.easylogger;
 
 import org.junit.Test;
+import space.wangjiang.easylogger.json.handler.JsonHandlerMapping;
+import space.wangjiang.easylogger.json.handler.StringJsonHandler;
 
 import java.util.*;
 
@@ -86,8 +88,14 @@ public class EasyLoggerTest {
 
     @Test
     public void iJsonTest() {
+        JsonHandlerMapping.register(Cat.class, new CatJsonHandler());
+        JsonHandlerMapping.register(String.class, new StringJsonHandler());
+
         Cat cat = new Cat("Tom", 3);
         EasyLogger.json(cat);
+
+        String[] array = {"AA\nBB\\SSS"};
+        EasyLogger.json(array);
     }
 
     /**

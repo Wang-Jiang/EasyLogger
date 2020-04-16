@@ -1,8 +1,6 @@
 package space.wangjiang.easylogger;
 
-import space.wangjiang.easylogger.json.IJson;
-
-public class Cat implements IJson {
+public class Cat {
 
     private String name;
     private int age;
@@ -28,8 +26,4 @@ public class Cat implements IJson {
         this.age = age;
     }
 
-    @Override
-    public String toJson() {
-        return "{}";
-    }
 }
