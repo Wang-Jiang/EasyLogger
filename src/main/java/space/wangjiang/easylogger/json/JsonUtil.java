@@ -2,6 +2,7 @@ package space.wangjiang.easylogger.json;
 
 
 import space.wangjiang.easylogger.StringUtil;
+import space.wangjiang.easylogger.json.handler.IJson;
 import space.wangjiang.easylogger.json.handler.IJsonHandler;
 import space.wangjiang.easylogger.json.handler.JsonHandlerMapping;
 
@@ -28,7 +29,11 @@ public class JsonUtil {
         if (object == null) {
             return "null";
         }
-        //优先判断是否实现IJson
+        // 优先判断是否实现IJson
+        if (object instanceof IJson) {
+            return ((IJson) object).toJson();
+        }
+        // 判断是否注册了改类的Json处理器
         Class<?> clazz = object.getClass();
         IJsonHandler jsonHandler = JsonHandlerMapping.get(clazz);
         if (jsonHandler != null) {
