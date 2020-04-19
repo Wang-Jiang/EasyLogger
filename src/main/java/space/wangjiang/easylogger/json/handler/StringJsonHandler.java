@@ -8,8 +8,8 @@ public class StringJsonHandler implements IJsonHandler<String> {
 
     @Override
     public String toJson(String value) {
-        value = '"' + value + '"';
-        return value.replaceAll("\\\\", "\\\\\\\\").replaceAll("\n", "\\\\n");
+        value = value.replaceAll("\\\\", "\\\\\\\\").replaceAll("\n", "\\\\n").replaceAll("\"", "\\\\\"");
+        return  '"' + value + '"';
     }
 
 }
