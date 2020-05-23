@@ -94,7 +94,7 @@ public class EasyLoggerTest {
         Cat cat = new Cat("Tom", 3);
         EasyLogger.json(cat);
 
-        String[] array = {"AA\nBB\\SSS\""};
+        String[] array = {"AA\nBB\\SSS\"\tBBB"};
         EasyLogger.json(array);
     }
 
